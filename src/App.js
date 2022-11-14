@@ -8,11 +8,25 @@ import data from "./data"
 import ShoeList from "./shoeList";
 import {Link, Outlet, Route, Router, Routes, useParams} from "react-router-dom";
 import Detail from "./Detail"
+import axios from "axios";
 
 function App() {
-    const [shoes] = useState(data);
+    const [shoes,setShoes] = useState(data);
     return (
         <div className="App">
+            <button onClick={() => {
+                axios.get('https://codingapple1.github.io/shop/data2.json').then((result) => {
+                    let copy = [...shoes];
+                    copy = copy.concat(result.data);
+                    setShoes(copy)
+                })
+                    .catch(() => {
+                        console.log('실패함')
+                    })
+
+            }}>이 버튼을 누르면 물건 개수가 늘어납니다.
+            </button>
+            <button onClick={console.log(data)}>data print button</button>
             <NavBar/>
             <Routes>
                 <Route path="/" element={
