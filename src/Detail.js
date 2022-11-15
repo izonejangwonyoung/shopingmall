@@ -7,7 +7,7 @@ function Detail(props) {
     const matchId = props.shoes.find(function (a) {
         return a.id == id
     })
-let [tab,setTab]=useState(0);
+    let [tab, setTab] = useState(0);
 
 
     const [showCoupon, setShowCoupon] = useState(true);
@@ -52,7 +52,7 @@ let [tab,setTab]=useState(0);
                             }} eventKey="link2">버튼2</Nav.Link>
                         </Nav.Item>
                     </Nav>
-                   <TabContent tab={tab}/>
+                    <TabContent tab={tab}/>
                 </div>
 
 
@@ -63,17 +63,25 @@ let [tab,setTab]=useState(0);
 }
 
 
-
-function TabContent(props){
-    if (props.tab === 0){
-        return
-        (<div>내용0</div>)
+function TabContent(props) {
+    let [fade, setFade] = useState('');
+    useEffect(() => {
+        setTimeout(() => {
+            setFade('end')
+        }, 100)
+        return () => {
+            setFade('')
+        }
+    }, [props.tab])
+    if (props.tab === 0) {
+        return <div className={'start ' + fade}>f내용0</div>
     }
-    if (props.tab === 1){
-        <div>내용1</div>
+    if (props.tab === 1) {
+        return <div>내용1</div>
     }
-    if (props.tab === 2){
-        <div>내용2</div>
+    if (props.tab === 2) {
+        return <div>내용2</div>
     }
 }
+
 export default Detail;
