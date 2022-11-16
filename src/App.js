@@ -9,7 +9,7 @@ import ShoeList from "./shoeList";
 import {Link, Outlet, Route, Router, Routes, useParams} from "react-router-dom";
 import Detail from "./Detail"
 import axios from "axios";
-
+import Cart from "./Cart";
 function App() {
     const [shoes,setShoes] = useState(data);
     return (
@@ -52,6 +52,7 @@ function App() {
                     <Route path="one" element={<div>첫 주문 시 배송비 무료</div>}/>
                     <Route path="two" element={<div>기념일 기념 쿠폰 받기</div>}/>
                 </Route>
+                <Route path="/cart"element={<Cart/>}></Route>
                 <Route path="*" element={<div>허튼 짓 말고 홈으로 돌아가세요</div>}/>
             </Routes>
         </div>

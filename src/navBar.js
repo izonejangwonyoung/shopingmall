@@ -15,6 +15,8 @@ function NavBar() {
                         <Nav.Link href="detail/0">Detail</Nav.Link>
                         <Nav.Link href="about">About</Nav.Link>
                         <Nav.Link href="event">Event</Nav.Link>
+                        <Nav.Link href="cart">Cart</Nav.Link>
+
                     </Nav>
                 </Container>
             </Navbar>
